@@ -21,7 +21,23 @@ def print_occurrences(output):
 
 def get_occurrences(pattern, text):
     # this function should find the occurances using Rabin Karp alghoritm 
+    pat = 0
+    txt = 0
+    h = 1
+    i = 0
+    j = 0
+    pat_length = len(pattern)
+    txt_length = len(text)
+    ch_num = 256
+    prime = 101
+    for i in range(pat_length-1):
+        h = (h*ch_num)%prime
 
+    for i in range(pat_length):
+        pat = (ch_num*pat + ord(pattern[i]))%prime
+        txt = (ch_num*txt + ord(text[i]))%prime
+
+    
     # and return an iterable variable
     return [0]
 
