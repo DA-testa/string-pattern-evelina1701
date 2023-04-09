@@ -37,7 +37,22 @@ def get_occurrences(pattern, text):
         pat = (ch_num*pat + ord(pattern[i]))%prime
         txt = (ch_num*txt + ord(text[i]))%prime
 
-    
+    for i in range(txt_length-pat_length+1):
+        if pat == txt:
+            for j in range(pat_length):
+                if txt[i+j] != pat[j]:
+                    break
+                else:
+                    j += 1
+
+            if j == pat_length:
+                print(str(i))
+
+        if i < txt_length-pat_length:
+            txt = (ch_num*(txt-ord(txt[i])*h)+ord(txt[i+pat_length])) % prime
+
+            if txt<0:
+                txt=txt + prime
     # and return an iterable variable
     return [0]
 
