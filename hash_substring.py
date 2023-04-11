@@ -61,7 +61,7 @@ def get_occurrences(pattern, text):
                 occurances.append(i)
 
         if i < txt_length-pat_length:
-            txt = (ch_num*(txt-ord(txt[i])*h)+ord(text[i+pat_length])) % prime
+            txt = (ch_num*(txt-ord(text[i])*h)+ord(text[i+pat_length])) % prime
 
             if txt<0:
                 txt=txt + prime
