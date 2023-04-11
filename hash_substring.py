@@ -10,11 +10,14 @@ def read_input():
         if "a" in fileName:
             return
         with open("./tests/"+fileName, mode="r") as file:
-            pattern = str(file.readline())
-            text = str(file.readline())
+            # pattern = str(file.readline())
+            # text = str(file.readline())
+            return (file.readline().rstrip(), file.readline().rstrip())
+
     if "I" in letter:
-        pattern = str(input())
-        text = str(input())
+        # pattern = str(input())
+        # text = str(input())
+
     # after input type choice
     # read two lines 
     # first line is pattern 
