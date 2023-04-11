@@ -10,14 +10,11 @@ def read_input():
         if "a" in fileName:
             return
         with open("./tests/"+fileName, mode="r") as file:
-            # pattern = str(file.readline())
-            # text = str(file.readline())
-            return (file.readline().rstrip(), file.readline().rstrip())
-
+            pattern = file.readline().rstrip()
+            text = file.readline().rstrip()
     if "I" in letter:
-        # pattern = str(input())
-        # text = str(input())
-
+        pattern = input().rstrip()
+        text = input().rstrip()
     # after input type choice
     # read two lines 
     # first line is pattern 
@@ -26,7 +23,8 @@ def read_input():
     # return both lines in one return
     
     # this is the sample return, notice the rstrip function
-    return (input().rstrip(), input().rstrip())
+    # return (input().rstrip(), input().rstrip())
+    return pattern, text
 
 def print_occurrences(output):
     # this function should control output, it doesn't need any return
