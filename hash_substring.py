@@ -4,7 +4,17 @@ def read_input():
     # this function needs to aquire input both from keyboard and file
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
     
-    
+    letter = input()
+    if "F" in letter:
+        fileName = input()
+        if "a" in fileName:
+            return
+        with open("./tests/"+fileName, mode="r") as file:
+            pattern = str(file.readline())
+            text = str(file.readline())
+    if "I" in letter:
+        pattern = str(input())
+        text = str(input())
     # after input type choice
     # read two lines 
     # first line is pattern 
