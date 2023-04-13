@@ -36,8 +36,6 @@ def get_occurrences(pattern, text):
     pat = 0
     txt = 0
     h = 1
-    i = 0
-    j = 0
     pat_length = len(pattern)
     txt_length = len(text)
     base = 256
