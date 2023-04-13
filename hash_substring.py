@@ -40,8 +40,7 @@ def get_occurrences(pattern, text):
     pat_length, txt_length = len(pattern), len(text)
     base = 256
     prime = 101
-    # for i in range(pat_length-1):
-    #     h = (h*base)%prime
+   
     h = pow(base,pat_length-1,prime)
 
     for i in range(pat_length):
