@@ -50,13 +50,13 @@ def get_occurrences(pattern, text):
     occurences = []
     for i in range(txt_length-pat_length+1):
         if pat == txt:
-            match = True
+            # match = True
             # for j in range(pat_length):
                 # if text[i+j] != pattern[j]:
             if pattern != text[i:i+pat_length]:
-                match = False
+                # match = False
                 break
-            if match:
+            if pattern == text[i:i+pat_length]:
                 occurences.append(i)
 
         if i < txt_length-pat_length:
