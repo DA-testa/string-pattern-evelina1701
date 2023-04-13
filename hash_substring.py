@@ -7,7 +7,7 @@ def read_input():
     
     letter = input()
     if "F" in letter:
-        fileName = input()
+        fileName = "06"
         if "a" in fileName:
             return
         with open("./tests/"+fileName, mode="r") as file:
