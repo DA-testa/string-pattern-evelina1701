@@ -49,7 +49,7 @@ def get_occurrences(pattern, text):
         pat = (base*pat + ord(pattern[i]))%prime
         txt = (base*txt + ord(text[i]))%prime
 
-    occurances = []
+    occurences = []
     for i in range(txt_length-pat_length+1):
         if pat == txt:
             for j in range(pat_length):
@@ -59,7 +59,7 @@ def get_occurrences(pattern, text):
                     j += 1
 
             if j == pat_length:
-                occurances.append(i)
+                occurences.append(i)
 
         if i < txt_length-pat_length:
             txt = (base*(txt-ord(text[i])*h)+ord(text[i+pat_length])) % prime
@@ -67,7 +67,7 @@ def get_occurrences(pattern, text):
             if txt<0:
                 txt=txt + prime
     # and return an iterable variable
-    return occurances
+    return occurences
 
 
 # this part launches the functions
