@@ -51,12 +51,13 @@ def get_occurrences(pattern, text):
     for i in range(txt_length-pat_length+1):
         if pat == txt:
             match = True
-            for j in range(pat_length):
-                if text[i+j] != pattern[j]:
-                    match = False
-                    break
-            if match:
-                occurences.append(i)
+            # for j in range(pat_length):
+                # if text[i+j] != pattern[j]:
+            if pattern != text[i:i+pat_length]:
+                match = False
+                break
+        if match:
+            occurences.append(i)
 
         if i < txt_length-pat_length:
             txt = (base*(txt-ord(text[i])*h)+ord(text[i+pat_length])) % prime
