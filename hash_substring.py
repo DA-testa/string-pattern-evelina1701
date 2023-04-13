@@ -56,8 +56,8 @@ def get_occurrences(pattern, text):
             if pattern != text[i:i+pat_length]:
                 match = False
                 break
-        if match:
-            occurences.append(i)
+            if match:
+                occurences.append(i)
 
         if i < txt_length-pat_length:
             txt = (base*(txt-ord(text[i])*h)+ord(text[i+pat_length])) % prime
