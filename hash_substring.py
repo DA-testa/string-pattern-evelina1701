@@ -9,7 +9,7 @@ def read_input():
     if "F" in letter:
         fileName = input()
         if "a" in fileName:
-            return None
+            return
         with open("./tests/"+fileName, mode="r") as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
