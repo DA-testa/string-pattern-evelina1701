@@ -40,14 +40,14 @@ def get_occurrences(pattern, text):
     j = 0
     pat_length = len(pattern)
     txt_length = len(text)
-    ch_num = 256
+    base = 256
     prime = 101
     for i in range(pat_length-1):
-        h = (h*ch_num)%prime
+        h = (h*base)%prime
 
     for i in range(pat_length):
-        pat = (ch_num*pat + ord(pattern[i]))%prime
-        txt = (ch_num*txt + ord(text[i]))%prime
+        pat = (base*pat + ord(pattern[i]))%prime
+        txt = (base*txt + ord(text[i]))%prime
 
     occurances = []
     for i in range(txt_length-pat_length+1):
@@ -62,7 +62,7 @@ def get_occurrences(pattern, text):
                 occurances.append(i)
 
         if i < txt_length-pat_length:
-            txt = (ch_num*(txt-ord(text[i])*h)+ord(text[i+pat_length])) % prime
+            txt = (base*(txt-ord(text[i])*h)+ord(text[i+pat_length])) % prime
 
             if txt<0:
                 txt=txt + prime
