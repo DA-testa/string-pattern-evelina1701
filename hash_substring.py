@@ -35,15 +35,14 @@ def get_occurrences(pattern, text):
     if not text or not pattern or len(text) < len(pattern):
         return -1
     # this function should find the occurances using Rabin Karp alghoritm 
-    pat = 0
-    txt = 0
+    pat, txt = 0, 0
     h = 1
-    pat_length = len(pattern)
-    txt_length = len(text)
+    pat_length, txt_length = len(pattern), len(text)
     base = 256
     prime = 101
-    for i in range(pat_length-1):
-        h = (h*base)%prime
+    # for i in range(pat_length-1):
+    #     h = (h*base)%prime
+    h = pow(base,pat_length-1,prime)
 
     for i in range(pat_length):
         pat = (base*pat + ord(pattern[i]))%prime
@@ -57,7 +56,6 @@ def get_occurrences(pattern, text):
                 if text[i+j] != pattern[j]:
                     match = False
                     break
-
             if match:
                 occurences.append(i)
 
