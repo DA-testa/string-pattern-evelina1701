@@ -32,6 +32,8 @@ def print_occurrences(output):
     print(' '.join(map(str, output)))
 
 def get_occurrences(pattern, text):
+    if not text or not pattern or len(text) < len(pattern):
+        return -1
     # this function should find the occurances using Rabin Karp alghoritm 
     pat = 0
     txt = 0
