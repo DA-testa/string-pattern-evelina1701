@@ -55,7 +55,7 @@ def get_occurrences(pattern, text):
                 # if text[i+j] != pattern[j]:
             if pattern != text[i:i+pat_length]:
                 # match = False
-                break
+                continue
             if pattern == text[i:i+pat_length]:
                 occurences.append(i)
 
