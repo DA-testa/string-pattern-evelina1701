@@ -32,9 +32,11 @@ def print_occurrences(output):
     print(' '.join(map(str, output)))
 
 def get_occurrences(pattern, text):
+    #tiek pārbaudīts, vai pattern nav lielāks par text
     if not text or not pattern or len(text) < len(pattern):
         return -1
     # this function should find the occurances using Rabin Karp alghoritm 
+    #tiek inicializēti mainīgie
     pat, txt = 0, 0
     h = 1
     pat_length, txt_length = len(pattern), len(text)
@@ -43,28 +45,28 @@ def get_occurrences(pattern, text):
    
     h = pow(base,pat_length-1,prime)
 
+    #tiek aprēķinātas hash vērtības gan pattern, gan text
     for i in range(pat_length):
         pat = (base*pat + ord(pattern[i]))%prime
         txt = (base*txt + ord(text[i]))%prime
 
+    #tiek salīdzinātas hash vērtības
     occurences = []
     for i in range(txt_length-pat_length+1):
         if pat == txt:
-            # match = True
-            # for j in range(pat_length):
-                # if text[i+j] != pattern[j]:
             if pattern != text[i:i+pat_length]:
-                # match = False
                 continue
             if pattern == text[i:i+pat_length]:
                 occurences.append(i)
 
+        #tiek iegūta jauna teksta hash vērtība, izmantojot iepriekšējo rezultātu
         if i < txt_length-pat_length:
             txt = (base*(txt-ord(text[i])*h)+ord(text[i+pat_length])) % prime
 
             if txt<0:
                 txt=txt + prime
     # and return an iterable variable
+    #iegūtie rezultāti tiek atgriezti saraksta veidā
     return occurences
 
 
